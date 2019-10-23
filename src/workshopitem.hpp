@@ -7,13 +7,13 @@
 #include "tags.hpp"
 #include <future>
 
-static const int MOMENTUM_APPID = 669270;
+static const int WARFORK_APPID = 671610;
 
 class WorkshopItem : public QObject
 {
     Q_OBJECT
 public:
-    WorkshopItem(int appID = MOMENTUM_APPID);
+    WorkshopItem(int appID = WARFORK_APPID);
     void BeginUpload();
 
     void SetMapName(const QString& name);

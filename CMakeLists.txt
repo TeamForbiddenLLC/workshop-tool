@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(momentum-workshop-tool)
+project(warfork-workshop-tool)
 
 #include cmake modules
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake/)
@@ -52,9 +52,9 @@ set (PROJECT_SRCS
 set (PROJECT_RESOURCES
         resources/resources.qrc)
 
-add_executable(momentum-workshop-tool ${GUI_TYPE} ${PROJECT_SRCS} ${PROJECT_RESOURCES})
+add_executable(warfork-workshop-tool ${GUI_TYPE} ${PROJECT_SRCS} ${PROJECT_RESOURCES})
 
-target_link_libraries(momentum-workshop-tool 
+target_link_libraries(warfork-workshop-tool 
 		Qt5::Widgets
 		Qt5::Core 
 		Qt5::Gui 

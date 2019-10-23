@@ -104,21 +104,21 @@ void FileSelector::AddFile(const QString& url)
     //this is required because the way the game mounts workshop content is that each
     //workshop item is a root "GAME" directory, the game then searches for maps inside the 'maps' folder
     QString path;
-    if (ext == "bsp")
+    if (ext == "pk3")
     {
-        ProcessBSP(file);
+        ProcessPK3(file);
     }
     else
     {
-        //for now, only allow people to add bsp files.
+        //for now, only allow people to add pk3 files.
         return;
     }
     file.close();
     update();
 }
 
-//copies the bsp file into maps subdir
-bool FileSelector::ProcessBSP(QFile& file)
+//copies the pk3 file
+bool FileSelector::ProcessPK3(QFile& file)
 {
     //get the filename stripped of path 
     const QString filename = QFileInfo(file.fileName()).fileName();
@@ -152,7 +152,7 @@ void FileSelector::CreateFileDialog()
     QFileDialog dialog(this->parentWidget());
     dialog.setFileMode(QFileDialog::AnyFile);
     dialog.setViewMode(QFileDialog::Detail);
-    dialog.setNameFilter(tr("Momentum Mod Maps (*.bsp)"));
+    dialog.setNameFilter(tr("Warfork Mods (*.pk3)"));
 
     QStringList fileNames;
     if (dialog.exec())

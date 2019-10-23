@@ -30,7 +30,7 @@ void MainWindow::SetupUI()
 {
     setWindowIcon(QIcon(":images/logo.png"));
 
-    setWindowTitle(tr("Momentum Mod - Workshop Upload Tool"));
+    setWindowTitle(tr("Warfork Steam Workshop Upload Tool"));
     setGeometry(100, 100, 0, 0);
 
     m_statusBar = new QStatusBar;

@@ -21,7 +21,7 @@ public:
     void dropEvent(QDropEvent* event) override;
 
     void AddFile(const QString& url);
-    bool ProcessBSP(QFile& file);
+    bool ProcessPK3(QFile& file);
 
     QString GetAbsolutePathToContent() const;
 public slots:
