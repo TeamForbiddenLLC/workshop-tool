@@ -57,8 +57,8 @@ void MainWindow::SetupUI()
     connect(m_btnSelectImage, &QPushButton::clicked,
         m_ImageSelector, &ImageSelector::CreateImageDialog);
 
-    layout->addRow(tr("Map Title"), m_lnItemTitle);
-    layout->addRow(tr("Map Description"), m_txDescription);
+    layout->addRow(tr("Mod Title"), m_lnItemTitle);
+    layout->addRow(tr("Mod Description"), m_txDescription);
     layout->addRow(tr("Language"), m_languages.GetLanguageComboBox());
     layout->addRow(m_btnAddFiles);
     layout->addRow(m_FileSelector);

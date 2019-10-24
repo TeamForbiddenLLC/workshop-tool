@@ -67,7 +67,7 @@ void FileSelector::paintEvent(QPaintEvent* event)
 
     if (m_vFileNames.empty())
     {
-        paint.drawText(event->rect(), Qt::AlignCenter, tr("Drag map file here."));
+        paint.drawText(event->rect(), Qt::AlignCenter, tr("Drag mod file (.pk3) here."));
     }
     else
     {
