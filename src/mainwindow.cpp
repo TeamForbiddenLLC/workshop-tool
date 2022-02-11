@@ -2,6 +2,7 @@
 #include <QMessageBox>
 #include <QFormLayout>
 #include <QTimer>
+#include <QCoreApplication>
 #include <QFileDialog>
 
 #include <QtDebug>
@@ -14,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
     SetupUI();
+	CheckAppId();
     if (!SteamAPI_Init())
     {
         QMessageBox fatalError;
@@ -128,4 +130,17 @@ void MainWindow::OnItemUploadCompleted()
     m_statusBar->showMessage(tr("Upload Complete!"));
     m_progressBar->reset();
     m_progressBar->setRange(0, 1); //for some reason we have to set a non-empty range or else the progress bar will just idle
+}
+
+void MainWindow::CheckAppId()
+{
+    QString appid_name = QCoreApplication::applicationDirPath() + "/steam_appid.txt";
+    if (!QFile::exists(appid_name))
+    {
+        QFile appid(appid_name);
+        if (appid.open(QIODevice::WriteOnly | QIODevice::Text))
+        {
+            QTextStream(&appid) << WARFORK_APPID;
+        }
+    }
 }

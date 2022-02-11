@@ -34,3 +34,4 @@ steamworks/*/
 *.exe
 *.out
 *.app
+build

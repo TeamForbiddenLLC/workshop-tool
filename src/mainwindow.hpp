@@ -31,6 +31,7 @@ public:
     void OnItemUploadCompleted();
 private:
     void SetupUI();
+    void CheckAppId();
 
     QPushButton* m_btnUpload, *m_btnAddFiles, *m_btnSelectImage;
     QLineEdit* m_lnItemTitle;

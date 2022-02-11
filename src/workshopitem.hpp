@@ -7,7 +7,7 @@
 #include "tags.hpp"
 #include <future>
 
-static const int WARFORK_APPID = 1136500;
+static const int WARFORK_APPID = 671610;
 
 class WorkshopItem : public QObject
 {

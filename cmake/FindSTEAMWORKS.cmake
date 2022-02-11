@@ -36,7 +36,7 @@ if (NOT STEAWORKS_FOUND)
     endif()
     
     find_library(STEAMWORKS_LIBRARY 
-        NAMES steam_api
+        NAMES steam_api steam_api64
         PATH_SUFFIXES  "redistributable_bin/${PATH_SUFFIX}"
         PATHS ${STEAMWORKS_PATH}
     )
