@@ -4,4 +4,4 @@ Due to valve's licence for Steamworks, we can't distrubute the Steamworks SDK wi
 
 !!PUT STEAMWORKS SDK HERE!!
 your directory layout should be: 
-	workshop-tool/steamworks/sdk/
+	warfork-steam-workshop/steamworks/sdk/
