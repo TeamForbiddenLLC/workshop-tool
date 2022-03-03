@@ -1,0 +1,38 @@
+sudo: false
+dist: xenial
+cache: 
+  apt: true
+  directories:
+    - $HOME/.deps
+matrix:
+  include:
+    - os: linux
+      language: c++
+      compiler: clang
+      env: 
+      - ARCH=x86_64
+      addons:
+        apt:
+          packages:
+            - clang
+            - cmake
+            - build-essential
+            - qt5-default
+#    - os: osx
+#      osx_image: xcode13.2
+#      env: 
+#      - ARCH=OSX  
+#      language: c++
+#      compiler: clang
+
+script:
+#  - if [ "$ARCH" = "OSX" ]; then brew install qt5; fi
+  - curl https://warfork.com/downloads/sdk/ --output "$TRAVIS_BUILD_DIR/steamworks/sdk.zip"
+  - unzip "$TRAVIS_BUILD_DIR/steamworks/sdk.zip" -d "$TRAVIS_BUILD_DIR/steamworks"
+  - cmake -H. -Bbuild
+  - cmake --build build --config release -- -j4
+  - cd build
+  - tar -czvf ../tmp.tar.gz warfork-workshop-tool
+  - cd ..
+  - mv tmp.tar.gz Release.tar.gz
+  - curl -F "file=@Release.tar.gz" https://file.io
