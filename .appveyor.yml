@@ -20,7 +20,7 @@ build_script:
 
     cmake --build build --config Release
 
-    cd build\Release
+    cd C:\projects\warfork-steam-workshop\build\Release\
     
     7z a win_x64-Release.zip warfork-workshop-tool.exe
 artifacts:
