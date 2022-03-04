@@ -20,10 +20,15 @@ build_script:
 
     cmake --build build --config Release
 
+    echo %PATH%
+
+    windeployqt.exe C:\projects\warfork-steam-workshop\build\Release
+    
+    xcopy /s /e /i "C:\projects\warfork-steam-workshop\steamworks\sdk\redistributable_bin\win64\*.dll" "C:\projects\warfork-steam-workshop\build\Release\"
+
     cd build\Release
     
-    7z a ..\..\win_x64-Release.zip
-
+    7z a ../../win_x64-Release.zip *
     
 artifacts:
 - path: win_x64-Release.zip
