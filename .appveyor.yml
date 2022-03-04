@@ -22,7 +22,7 @@ build_script:
 
     cd build\Release
     
-    7z a warfork-workshop-tool.exe win_x64-Release.zip
+    7z a win_x64-Release.zip warfork-workshop-tool.exe
 artifacts:
 - path: win_x64-Release.zip
 deploy:
