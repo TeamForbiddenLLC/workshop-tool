@@ -3,11 +3,14 @@
 A desktop tool for uploading Warfork content to the Steam Workshop. Shipped with Warfork (FVI Launcher) on Steam.
 
 [![Build Status][travis-badge]][travis-url]
+[![Build Status][appveyor-badge]][appveyor-url]
 
 https://warfork.com/
 
 [travis-badge]: https://travis-ci.com/TeamForbiddenLLC/warfork-steam-workshop.svg?branch=master
 [travis-url]: https://travis-ci.com/TeamForbiddenLLC/warfork-steam-workshop/
+[appveyor-badge]: https://ci.appveyor.com/api/projects/status/663w96wel5t5f7xu/branch/master?svg=true
+[appveyor-url]: https://ci.appveyor.com/project/Warfork/warfork-steam-workshop
 
 ## Building
 

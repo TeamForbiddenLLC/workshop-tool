@@ -1,0 +1,44 @@
+version: 1.0.{build}
+skip_branch_with_pr: false
+image: Visual Studio 2019
+configuration: Release
+environment:
+  matrix:
+  - BUILD_PLATFORM: x64
+    VS_GENERATOR: Visual Studio 16 2019
+    QTDIR: C:\Qt\5.15\msvc2019_64
+init:
+  - set PATH=%QTDIR%\bin;%PATH%
+build_script:
+- cmd: >-
+
+    curl https://warfork.com/downloads/sdk/ --output steamworks/sdk.zip
+    
+    7z x steamworks/sdk.zip -osteamworks
+
+    cmake -G "Visual Studio 16 2019" -A x64 -H. -Bbuild
+
+    cmake --build build --config Release
+
+    cd build\Release
+    
+    7z a warfork-workshop-tool.exe win_x64-Release.zip
+artifacts:
+- path: win_x64-Release.zip
+deploy:
+- provider: Environment
+  name: Automatic Github releases
+  on:
+    branch: /(master|ci)/
+    APPVEYOR_REPO_TAG: true
+on_success:
+ - ps: Invoke-RestMethod https://raw.githubusercontent.com/Warfork/appveyor-discord-webhook/master/send.ps1 -o send.ps1
+ - ps: ./send.ps1 success $env:WEBHOOK_URL
+on_failure:
+ - ps: Invoke-RestMethod https://raw.githubusercontent.com/Warfork/appveyor-discord-webhook/master/send.ps1 -o send.ps1
+ - ps: ./send.ps1 failure $env:WEBHOOK_URL  
+notifications:
+- provider: GitHubPullRequest
+  on_build_success: true
+  on_build_failure: true
+  on_build_status_changed: false
