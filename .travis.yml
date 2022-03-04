@@ -18,6 +18,7 @@ matrix:
             - cmake
             - build-essential
             - qt5-default
+            - patchelf
 #    - os: osx
 #      osx_image: xcode13.2
 #      env: 
@@ -32,7 +33,9 @@ script:
   - cmake -H. -Bbuild
   - cmake --build build --config release -- -j4
   - cd build
-  - tar -czvf ../tmp.tar.gz warfork-workshop-tool
+  - patchelf --set-rpath '$ORIGIN' ./warfork-workshop-tool
+  - cp "$TRAVIS_BUILD_DIR/steamworks/sdk/redistributable_bin/linux64/libsteam_api.so" .
+  - tar -czvf ../tmp.tar.gz warfork-workshop-tool libsteam_api.so
   - cd ..
   - mv tmp.tar.gz Release.tar.gz
   - curl -F "file=@Release.tar.gz" https://file.io

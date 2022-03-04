@@ -18,7 +18,7 @@ https://warfork.com/
 ```
 cmake 3.0 or newer
 C++14 compiler
-Qt5.6 or newer (Any version of Qt5 *should* work though)
+Qt5.15.2 or newer (Any version of Qt5 *should* work though)
 Steamworks SDK (see steamworks/readme.txt)
 ```
 
