@@ -20,9 +20,11 @@ build_script:
 
     cmake --build build --config Release
 
-    cd C:\projects\warfork-steam-workshop\build\Release\
+    cd build\Release
     
-    7z a win_x64-Release.zip warfork-workshop-tool.exe
+    7z a ..\..\win_x64-Release.zip
+
+    
 artifacts:
 - path: win_x64-Release.zip
 deploy:
