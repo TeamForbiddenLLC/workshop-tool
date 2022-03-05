@@ -1,0 +1,18 @@
+version: '{build}'
+image: macos
+environment:
+  global:
+    WARFORK_ROOT: /Users/appveyor/projects/warfork-steam-workshop
+    QTDIR: $HOME/Qt/5.15.2/clang_64/bin
+    
+init:
+  - export PATH="$HOME/Qt/5.15.2/clang_64/bin:$PATH"
+    
+install:
+
+  - cd $WARFORK_ROOT/steamworks/
+  - curl https://warfork.com/downloads/sdk/ --output sdk.zip
+  - unzip sdk.zip
+  - cd $WARFORK_ROOT
+  - cmake -H. -Bbuild
+  - cmake --build build --config release -- -j4
