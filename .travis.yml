@@ -19,6 +19,8 @@ matrix:
             - build-essential
             - qt5-default
             - patchelf
+      before_install:
+            sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 6B05F25D762E3157
 #    - os: osx
 #      osx_image: xcode13.2
 #      env: 
